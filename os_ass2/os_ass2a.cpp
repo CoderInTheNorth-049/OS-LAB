@@ -39,7 +39,7 @@ void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
         pair<int,pii> curr=q.front();
         q.pop();
         time+=min(2,curr.ss.ff);
-        while(v[it].ff<=time){
+        while(it<n && v[it].ff<=time){
             q.push(v[it]);
             it+=1;
         }
