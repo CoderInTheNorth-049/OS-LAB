@@ -13,7 +13,7 @@ void updateTable(int i, int &strt, vector<pair<int,pii>> &v, vector<vector<int>>
     if(ct==1e9) ct=max(v[i].ff,strt)+v[i].ss.ff;
     table[i][3]=ct;// CT
     strt=table[i][3];
-    table[i][4]=strt-table[i][1];tat+=table[i][4];
+    table[i][4]=table[i][3]-table[i][1];tat+=table[i][4];
     table[i][5]=table[i][4]-table[i][2];wt+=table[i][5];
 }
 
@@ -35,17 +35,19 @@ void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
     // q-> {AT,{BT, jobNo}}
     q.push(v[0]);
     int it=1,temp=0;
-    while(1){
+    while(!q.empty()){
         pair<int,pii> curr=q.front();
+        //cout<<curr.ff<<" "<<curr.ss.ff<<" "<<curr.ss.ss<<endl;
         q.pop();
         time+=min(2,curr.ss.ff);
         while(it<n && v[it].ff<=time){
+            
             q.push(v[it]);
             it+=1;
         }
         curr.ss.ff-=2;
         if(curr.ss.ff<=0){
-            updateTable(curr.ss.ss,temp,v,table,tat,wt,time);
+            updateTable(curr.ss.ss-1,temp,v,table,tat,wt,time);
         }
         else q.push(curr);
         if(q.empty()){
@@ -137,7 +139,8 @@ int main(){
         v[i].ss.ss=i+1;
     }
     //fcfs(n,v,table);
+    //nsjf(n,v,table);
     //sjf(n,v,table);
-    robin(n,v,table);
+    //robin(n,v,table);
    
 }
