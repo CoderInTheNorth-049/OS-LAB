@@ -65,9 +65,10 @@ int main(){
     vector<vector<int>> table(n,vector<int>(7));
    
     for(int i=0;i<n;i++){
-        cin>>v[i].ff.ff>>v[i].ff.ss>>v[i].ss.ff;
+        cin>>v[i].ff.ff>>v[i].ss.ff>>v[i].ff.ss;
         v[i].ss.ss=i+1;
     }
+    cout<<"Priority:"<<endl;
     priority(n,v,table);
-   
+    cout<<endl<<endl;
 }

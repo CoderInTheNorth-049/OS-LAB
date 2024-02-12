@@ -29,6 +29,7 @@ void printTable(int n,vector<vector<int>> &table,int tat,int wt){
 
 void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
     sort(v.begin(),v.end());
+    int quant=4;
     // for v => {at, {bt, jobNo}}
     int time=v[0].ff,tat=0,wt=0;
     queue<pair<int,pii>> q;
@@ -39,13 +40,13 @@ void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
         pair<int,pii> curr=q.front();
         //cout<<curr.ff<<" "<<curr.ss.ff<<" "<<curr.ss.ss<<endl;
         q.pop();
-        time+=min(2,curr.ss.ff);
+        time+=min(quant,curr.ss.ff);
         while(it<n && v[it].ff<=time){
             
             q.push(v[it]);
             it+=1;
         }
-        curr.ss.ff-=2;
+        curr.ss.ff-=quant;
         if(curr.ss.ff<=0){
             updateTable(curr.ss.ss-1,temp,v,table,tat,wt,time);
         }
@@ -138,9 +139,17 @@ int main(){
         cin>>v[i].ff>>v[i].ss.ff;
         v[i].ss.ss=i+1;
     }
-    //fcfs(n,v,table);
-    //nsjf(n,v,table);
-    //sjf(n,v,table);
-    //robin(n,v,table);
-   
+    cout<<"Firsy come first serve:"<<endl;
+    fcfs(n,v,table);
+    cout<<endl<<endl;
+    cout<<"Non preemptive SJF:"<<endl;
+    nsjf(n,v,table);
+    cout<<endl<<endl;
+    cout<<"Preemptive SJF:"<<endl;
+    sjf(n,v,table);
+    cout<<endl<<endl;
+    cout<<"Round Robin:"<<endl;
+    robin(n,v,table);
+    cout<<endl<<endl;
+
 }
