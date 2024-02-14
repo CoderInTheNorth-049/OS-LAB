@@ -129,23 +129,25 @@ void  nsjf(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
 
 int main(){
     int n;
+    cout<<"Enter no. of jobs: ";
     cin>>n;
     cout << fixed << setprecision(5);
     // at bt job no.
     vector<pair<int,pii>> v(n);
     // at bt ct tat wt
     vector<vector<int>> table(n,vector<int>(6));
+    cout<<"Enter AT and BT for jobs:\n";
     for(int i=0;i<n;i++){
         cin>>v[i].ff>>v[i].ss.ff;
         v[i].ss.ss=i+1;
     }
-    cout<<"Firsy come first serve:"<<endl;
+    cout<<"First come first serve:"<<endl;
     fcfs(n,v,table);
     cout<<endl<<endl;
-    cout<<"Non preemptive SJF:"<<endl;
+    cout<<"Non pre-emptive SJF:"<<endl;
     nsjf(n,v,table);
     cout<<endl<<endl;
-    cout<<"Preemptive SJF:"<<endl;
+    cout<<"Pre-emptive SJF:"<<endl;
     sjf(n,v,table);
     cout<<endl<<endl;
     cout<<"Round Robin:"<<endl;
@@ -153,3 +155,51 @@ int main(){
     cout<<endl<<endl;
 
 }
+/*OUTPUT:
+
+Enter no. of jobs: 4
+Enter AT and BT for jobs:
+0 8
+1 4
+2 9
+3 5
+First come first serve:
+job AT BT CT TAT WT
+1 0 8 8 8 0 
+2 1 4 12 11 7 
+3 2 9 21 19 10 
+4 3 5 26 23 18 
+avg tat: 15.25000
+avg wt: 8.75000
+
+
+Non pre-emptive SJF:
+job AT BT CT TAT WT
+1 0 8 8 8 0 
+2 1 4 12 11 7 
+3 2 9 26 24 15 
+4 3 5 17 14 9 
+avg tat: 14.25000
+avg wt: 7.75000
+
+
+Pre-emptive SJF:
+job AT BT CT TAT WT
+1 0 8 17 17 9 
+2 1 4 5 4 0 
+3 2 9 26 24 15 
+4 3 5 10 7 2 
+avg tat: 13.00000
+avg wt: 6.50000
+
+
+Round Robin:
+job AT BT CT TAT WT
+1 0 8 20 20 12
+2 1 4 8 7 3
+3 2 9 26 24 15
+4 3 5 25 22 17 
+avg tat: 18.25000
+avg wt: 11.75000
+
+*/

@@ -57,13 +57,14 @@ void priority(int n, vector<pair<pii,pii>> v, vector<vector<int>> table){
 int main(){
     //given -> AT BT pri
     int n;
+    cout<<"Enter no. of jobs: ";
     cin>>n;
     cout << fixed << setprecision(5);
     // at pt bt jobno.
     vector<pair<pii,pii>> v(n);
     // jbNO at pt bt ct tat wt
     vector<vector<int>> table(n,vector<int>(7));
-   
+   cout<<"Enter AT, BT and PRIO for jobs:\n";
     for(int i=0;i<n;i++){
         cin>>v[i].ff.ff>>v[i].ss.ff>>v[i].ff.ss;
         v[i].ss.ss=i+1;
@@ -72,3 +73,22 @@ int main(){
     priority(n,v,table);
     cout<<endl<<endl;
 }
+
+/*OUTPUT:
+
+Enter no. of jobs: 4
+Enter AT, BT and PRIO for jobs:
+0 8 3
+1 4 1
+2 9 4
+3 5 2
+Priority:
+job AT BT CT TAT WT PRIO
+1 0 8 8 8 0 3 
+2 1 4 12 11 7 1 
+3 2 9 26 24 15 4 
+4 3 5 17 14 9 2 
+avg tat: 14.25000
+avg wt: 7.75000
+
+*/
