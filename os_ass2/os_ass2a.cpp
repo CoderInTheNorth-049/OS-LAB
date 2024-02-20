@@ -6,6 +6,8 @@ using namespace std;
 
 #define pii pair<int,int>
 
+map<double,string> tatu,wtu;
+
 void updateTable(int i, int &strt, vector<pair<int,pii>> &v, vector<vector<int>> &table, int &tat, int &wt, int ct){
     table[i][0]=v[i].ss.ss; //jobNo
     table[i][1]=v[i].ff; //AT
@@ -17,7 +19,7 @@ void updateTable(int i, int &strt, vector<pair<int,pii>> &v, vector<vector<int>>
     table[i][5]=table[i][4]-table[i][2];wt+=table[i][5];
 }
 
-void printTable(int n,vector<vector<int>> &table,int tat,int wt){
+void printTable(int n,vector<vector<int>> &table,int tat,int wt,string algo){
     cout<<"job AT BT CT TAT WT\n";
     for(auto &it:table){
         for(int x:it) cout<<x<<" ";
@@ -25,6 +27,8 @@ void printTable(int n,vector<vector<int>> &table,int tat,int wt){
     }
     cout<<"avg tat: "<<1.0*tat/n<<endl;
     cout<<"avg wt: "<<1.0*wt/n<<endl;
+    tatu[1.0*tat/n]=algo;
+    wtu[1.0*wt/n]=algo;
 }
 
 void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
@@ -58,7 +62,7 @@ void robin(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
             }else break;
         }
     }
-     printTable(n,table,tat,wt);
+     printTable(n,table,tat,wt,"Robin");
 }
 
 void sjf(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
@@ -90,7 +94,7 @@ void sjf(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
             }else break;
         }
     }
-    printTable(n,table,tat,wt);
+    printTable(n,table,tat,wt,"PSJF");
 }
 
 void fcfs(int n,vector<pair<int,pii>> v,vector<vector<int>> table){
@@ -100,7 +104,7 @@ void fcfs(int n,vector<pair<int,pii>> v,vector<vector<int>> table){
         // jobNo at bt ct tat wt
         updateTable(i,strt,v,table,tat,wt,1e9);        
     }
-    printTable(n,table,tat,wt);
+    printTable(n,table,tat,wt,"FCFS");
 }
 
 void  nsjf(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
@@ -124,7 +128,7 @@ void  nsjf(int n, vector<pair<int,pii>> v, vector<vector<int>> table){
             else break;
         }
     }
-    printTable(n,table,tat,wt);
+    printTable(n,table,tat,wt,"NPSJF");
 }
 
 int main(){
@@ -153,6 +157,18 @@ int main(){
     cout<<"Round Robin:"<<endl;
     robin(n,v,table);
     cout<<endl<<endl;
+
+    cout<<"Comaprison for TAT:\n";
+    for(auto &it:tatu){
+        cout<<it.ss<<" < ";
+    }
+    cout<<endl;
+
+    cout<<"Comaprison for WT:\n";
+    for(auto &it:wtu){
+        cout<<it.ss<<" < ";
+    }
+    cout<<endl;
 
 }
 /*OUTPUT:
@@ -202,4 +218,8 @@ job AT BT CT TAT WT
 avg tat: 18.25000
 avg wt: 11.75000
 
+Comaprison for TAT:
+PSJF < NPSJF < FCFS < Robin
+Comaprison for WT:
+PSJF < NPSJF < FCFS < Robin
 */
