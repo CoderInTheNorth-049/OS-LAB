@@ -54,4 +54,10 @@ OUTPUT:
 Enter 2 commands separated by pipe operator:
 ls -l | grep -c 'pccoe'
 3
+
+Enter 2 commands separated by pipe operator:
+ls -l | sort
+drwxrwxr-x 2 pccoe pccoe  4096 Feb 14 15:20 tmp
+-rw-rw-r-- 1 pccoe pccoe  1538 Feb 14 15:17 pipe_sim.cpp
+-rwxrwxr-x 1 pccoe pccoe 26192 Feb 14 15:23 a.out
  */
