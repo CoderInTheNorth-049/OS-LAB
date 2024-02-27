@@ -53,11 +53,20 @@ int main() {
 OUTPUT:
 Enter 2 commands separated by pipe operator:
 ls -l | grep -c 'pccoe'
-3
+11
 
 Enter 2 commands separated by pipe operator:
 ls -l | sort
-drwxrwxr-x 2 pccoe pccoe  4096 Feb 14 15:20 tmp
--rw-rw-r-- 1 pccoe pccoe  1538 Feb 14 15:17 pipe_sim.cpp
--rwxrwxr-x 1 pccoe pccoe 26192 Feb 14 15:23 a.out
+drwxrwxr-x 2 pccoe pccoe  4096 Feb 20 10:17 tmp
+-rw-rw-r-- 1 pccoe pccoe  1322 Feb 27 10:08 pipe.cpp
+-rw-rw-r-- 1 pccoe pccoe  1684 Feb 21 11:21 pipe_sim.cpp
+-rw-rw-r-- 1 pccoe pccoe  1954 Feb 14 15:50 pipe_sim2.cpp
+-rw-rw-r-- 1 pccoe pccoe   512 Feb 20 10:20 writer.cpp
+-rw-rw-r-- 1 pccoe pccoe   621 Feb 20 10:22 reader.cpp
+-rwxrwxr-x 1 pccoe pccoe 16744 Feb 20 10:22 reader
+-rwxrwxr-x 1 pccoe pccoe 16784 Feb 27 10:08 pipe
+-rwxrwxr-x 1 pccoe pccoe 23576 Feb 20 10:21 writer
+-rwxrwxr-x 1 pccoe pccoe 23944 Feb 20 10:15 a.out
+-rwxrwxr-x 1 pccoe pccoe 26192 Feb 27 10:19 pipe_sim
+total 140
  */
