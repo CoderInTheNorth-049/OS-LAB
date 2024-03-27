@@ -1,0 +1,166 @@
+CASE 1: Possible
+
+enter no of processes and no of resources respectively
+5 3
+enter allocation of resources for every process
+0 1 0
+2 0 0
+3 0 2
+2 1 1
+0 0 2
+enter max allocation of resources for every process
+7 5 3
+3 2 2
+9 0 2
+2 2 2
+4 3 3
+enter available resources
+3 3 2
+
+Need table:
+7 4 3 
+1 2 2 
+6 0 0 
+0 1 1 
+4 3 1
+
+for p0
+current available
+3 3 2
+current need
+7 4 3
+
+need > avail. skipped and added to waitlist
+
+for p1
+current available
+3 3 2
+current need
+1 2 2
+
+need <= avail. Now enter requested allocation
+1 2 2
+resources available after allocation:
+5 3 2
+
+for p2
+current available
+5 3 2
+current need
+6 0 0
+
+need > avail. skipped and added to waitlist
+
+for p3
+current available
+5 3 2
+current need
+0 1 1
+
+need <= avail. Now enter requested allocation
+0 1 1
+resources available after allocation:
+7 4 3
+
+for p4
+current available
+7 4 3
+current need
+4 3 1
+
+need <= avail. Now enter requested allocation
+4 3 1
+resources available after allocation:
+7 4 5
+
+for p0
+current available
+7 4 5
+current need
+7 4 3
+
+need <= avail. Now enter requested allocation
+7 4 3
+resources available after allocation:
+7 5 5
+
+for p2
+current available
+7 5 5
+current need
+6 0 0
+
+need <= avail. Now enter requested allocation
+6 0 0
+resources available after allocation:
+10 5 7
+
+
+executing sequence with waiting:
+p1 p3 p4 p0 p2
+
+======================================================
+
+CASE2: Not Possible
+
+enter no of processes and no of resources respectively
+5 3
+enter allocation of resources for every process
+0 1 0
+2 0 0
+3 0 2
+2 1 1
+0 0 2
+enter max allocation of resources for every process
+7 5 3
+3 2 2
+9 0 2
+2 2 2
+4 3 3
+enter available resources
+3 3 2
+
+Need table:
+7 4 3 
+1 2 2 
+6 0 0
+0 1 1
+4 3 1
+
+for p0
+current available
+3 3 2
+current need
+7 4 3
+
+need > avail. skipped and added to waitlist
+
+for p1
+current available
+3 3 2
+current need
+1 2 2
+
+need <= avail. Now enter requested allocation
+1 2 1
+resources available after allocation:
+5 3 3
+
+for p2
+current available
+5 3 3
+current need
+6 0 0
+
+need > avail. skipped and added to waitlist
+
+for p3
+current available
+5 3 3
+current need
+0 1 1
+
+need <= avail. Now enter requested allocation
+0 1 2
+Requested allocation is greater than max need. Therefore not possible to allocate and no sequence exists.
+
