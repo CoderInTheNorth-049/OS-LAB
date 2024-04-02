@@ -83,7 +83,8 @@ void WorstFit(vector<int> block,vector<int> file){
 void NextFit(vector<int> block,vector<int> file){
     vector<table> ans(m+1);
     function<void(int,int&)> edit=[&](int idx,int &last){
-        for(int i=(last+1)%n;i!=last%n;i++){
+        for(int i=(last+1)%(n+1);i!=last%(n+1);i++){
+            i%=(n+1);
             if(i==0) continue;
             if(block[i]>=file[idx]){
                 update(i,idx,block,file,ans);
