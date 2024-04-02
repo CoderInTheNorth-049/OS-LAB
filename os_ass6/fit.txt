@@ -1,0 +1,34 @@
+enter no. of memory blocks: 4
+enter no. of files: 4
+enter size of each memory block
+5 2 7 3
+enter size of each file
+1 3 4 2
+
+First Fit:
+file no  file size       block no        block size      fragment
+1               1               1               5               4
+2               3               1               4               1
+3               4               3               7               3
+4               2               2               2               0
+
+Best Fit:
+file no  file size       block no        block size      fragment
+1               1               2               2               1
+2               3               4               3               0
+3               4               1               5               1
+4               2               3               7               5
+
+Worst Fit:
+file no  file size       block no        block size      fragment
+1               1               3               7               6
+2               3               3               6               3
+3               4               1               5               1
+4               2               3               3               1
+
+Next Fit:
+file no  file size       block no        block size      fragment
+1               1               1               5               4
+2               3               3               7               4
+3               4               1               4               0
+4               2               2               2               0
