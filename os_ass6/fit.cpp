@@ -2,6 +2,10 @@
 using namespace std;
 int n,m;
 
+multimap<int,string> fragct;
+#define ff first
+#define ss second
+
 struct table{
     int filesz;
     int blockno;
@@ -23,6 +27,17 @@ void print(auto &ans){
         cout<<i<<"\t\t"<<ans[i].filesz<<"\t\t"<<ans[i].blockno<<"\t\t"<<ans[i].blocksz<<"\t\t"<<ans[i].frag<<endl;
     }
 }
+void printfrag(auto &block,string algo){
+    int ct=0;
+    for(int i=1;i<=n;i++){
+        if(block[i]!=0){
+            ct+=1;
+            cout<<"block "<<i<<" have fragment of size "<<block[i]<<endl;
+        }
+
+    }
+    fragct.insert({ct,algo});
+}
 
 void FirstFit(vector<int> block,vector<int> file){
     vector<table> ans(m+1);
@@ -39,7 +54,7 @@ void FirstFit(vector<int> block,vector<int> file){
     }
     cout<<"\nFirst Fit:\n";
     print(ans);
-
+    printfrag(block, " first ");
 }
 
 void BestFit(vector<int> block,vector<int> file){
@@ -59,6 +74,7 @@ void BestFit(vector<int> block,vector<int> file){
     }
     cout<<"\nBest Fit:\n";
     print(ans);
+    printfrag(block, " best ");
 }
 
 void WorstFit(vector<int> block,vector<int> file){
@@ -78,6 +94,7 @@ void WorstFit(vector<int> block,vector<int> file){
     }
     cout<<"\nWorst Fit:\n";
     print(ans);
+    printfrag(block, " worst ");
 }
 
 void NextFit(vector<int> block,vector<int> file){
@@ -99,6 +116,7 @@ void NextFit(vector<int> block,vector<int> file){
     }
     cout<<"\nNext Fit:\n";
     print(ans);
+    printfrag(block, " next ");
 }
 
 int main(){
@@ -119,5 +137,14 @@ int main(){
     BestFit(block,file);
     WorstFit(block,file);
     NextFit(block,file);
+
+    cout<<"\nComparison:\n";
+    for(auto &it:fragct){
+        cout<<it.ss<<" ";
+    }
+    cout<<endl;
+    for(auto &it:fragct){
+        cout<<it.ff<<"\t";
+    }
 
 }
