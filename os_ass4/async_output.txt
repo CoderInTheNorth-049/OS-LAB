@@ -1,0 +1,20 @@
+Enter the number of readers: 5
+Enter the number of writers: 4
+Reader 140202997564992 is inside
+Reader 140202989172288 is inside
+Reader 140202972386880 is inside
+Writer 140202955601472 is inside
+Writer 140202938816064 is inside
+Writer 140202930423360 is inside
+Reader 140202980779584 is inside
+Writer 140202947208768 is inside
+Reader 140202963994176 is inside
+Reader 140202997564992 is leaving
+Reader 140202989172288 is leaving
+Writer 140202930423360 is leaving
+Reader 140202972386880 is leaving
+Writer 140202955601472 is leaving
+Writer 140202938816064 is leaving
+Writer 140202947208768 is leaving
+Reader 140202980779584 is leaving
+Reader 140202963994176 is leaving

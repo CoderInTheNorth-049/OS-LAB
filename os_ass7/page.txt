@@ -1,0 +1,98 @@
+Enter the number of frames: 4
+Enter the page reference string separated by spaces: 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
+
+FCFS:
+Page 7 caused a page fault.
+Frames: 7 
+Page 0 caused a page fault.
+Frames: 0 7 
+Page 1 caused a page fault.
+Frames: 1 0 7 
+Page 2 caused a page fault.
+Frames: 1 0 2 7
+Frames: 1 0 2 7
+Page 3 caused a page fault.
+Frames: 3 1 0 2
+Frames: 3 1 0 2
+Page 4 caused a page fault.
+Frames: 4 3 1 2
+Frames: 4 3 1 2
+Frames: 4 3 1 2 
+Page 0 caused a page fault.
+Frames: 0 4 3 2
+Frames: 0 4 3 2
+Frames: 0 4 3 2
+Page 1 caused a page fault.
+Frames: 1 0 4 3
+Page 2 caused a page fault.
+Frames: 2 1 0 4
+Frames: 2 1 0 4
+Frames: 2 1 0 4
+Page 7 caused a page fault.
+Frames: 7 2 1 0
+Frames: 7 2 1 0
+Frames: 7 2 1 0
+
+LRU:
+Page 7 caused a page fault.
+Frames: 7 
+Page 0 caused a page fault.
+Frames: 0 7
+Page 1 caused a page fault.
+Frames: 1 0 7
+Page 2 caused a page fault.
+Frames: 1 0 2 7
+Frames: 1 0 2 7
+Page 3 caused a page fault.
+Frames: 3 1 0 2
+Frames: 3 1 0 2
+Page 4 caused a page fault.
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Page 1 caused a page fault.
+Frames: 1 3 0 2
+Frames: 1 3 0 2
+Frames: 1 3 0 2
+Frames: 1 3 0 2
+Page 7 caused a page fault.
+Frames: 1 0 7 2
+Frames: 1 0 7 2
+Frames: 1 0 7 2
+
+Optimal:
+Page 7 caused a page fault.
+Frames: 7
+Page 0 caused a page fault.
+Frames: 0 7
+Page 1 caused a page fault.
+Frames: 1 0 7
+Page 2 caused a page fault.
+Frames: 1 0 2 7
+Frames: 1 0 2 7 
+Page 3 caused a page fault.
+Frames: 3 1 0 2
+Frames: 3 1 0 2
+Page 4 caused a page fault.
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Frames: 4 3 0 2
+Page 1 caused a page fault.
+Frames: 1 3 0 2 
+Frames: 1 3 0 2
+Frames: 1 3 0 2
+Frames: 1 3 0 2
+Page 7 caused a page fault.
+Frames: 1 0 7 2
+Frames: 1 0 7 2
+Frames: 1 0 7 2
+
+Total page faults using FCFS: 10
+Total page faults using LRU: 8
+Total page faults using Optimal: 8

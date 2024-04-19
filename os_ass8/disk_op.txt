@@ -1,0 +1,16 @@
+Enter the number of requests: 6
+Enter the requests: 20 150 90 70 30 60
+Enter the initial head position: 50
+Enter the maximum cylinder size: 170
+Initial position of head: 50
+FIFO Seek Time: 310
+Sequence: 20->150->90->70->30->60->
+SSTF Seek Time: 240
+Sequence: 60->70->90->30->20->150->
+SCAN Seek Time: 290
+Sequence: 60->70->90->150->170->30->20->0->
+C-SCAN
+Seek Time = 320
+Order of requests serviced by C-SCAN: 60->70->90->150->170->0->20->30->
+
+SSTF < SCAN < FIFO < C-SCAN
